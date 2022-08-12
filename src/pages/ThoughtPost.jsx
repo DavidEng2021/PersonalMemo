@@ -1,9 +1,12 @@
 import {React, useState, useEffect} from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
 import axios, * as others from 'axios';
 import './ThoughtPost.css'
 
 const ThoughtPost = () => {
+
+  const navigate = useNavigate()
 
    const {id} = useParams()
    //用id向後端得到post內容
@@ -20,12 +23,20 @@ const ThoughtPost = () => {
      });
    },[])
 
+   const notify = () => toast("刪除成功!");
+
     const deletePost = () =>{
       alert('確定要刪除?')
-    //向後端刪除指定id之post
+      axios.delete("http://localhost:3001/delete/"+id).then(
+        ()=>{
+          notify();
+          navigate('/thought');
+        }
+      );
     }
 
   return (
+    <>
     <div className='post-container'>
         <div className='post-container__content'>
             <h4>ID:{id} 日期:{post.date}</h4>
@@ -40,6 +51,18 @@ const ThoughtPost = () => {
             </div>
         </div>
     </div>
+    <ToastContainer
+    position="top-center"
+    autoClose={1500}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss
+    draggable
+    pauseOnHover
+    />
+    </>
   )
 }
 

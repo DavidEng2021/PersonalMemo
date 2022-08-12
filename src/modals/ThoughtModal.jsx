@@ -4,7 +4,7 @@ import axios, * as others from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const ThoughtModal = () => {
+const ThoughtModal = ({setPageflesh,pageflesh}) => {
 
     const Today = new Date()
     const fullDay = Today.getFullYear()+ " 年 " + (Today.getMonth()+1) + " 月 " + Today.getDate() + " 日"
@@ -31,9 +31,14 @@ const ThoughtModal = () => {
                 'type':'隨筆',
                 'mood':'正',
                 'text':''
-                })
+                });
+            setPageflesh(!pageflesh);
         })
-    }
+    };
+
+    // const handleClose = () =>{
+    //     setPageflesh(true);
+    // }
    
 
   return (

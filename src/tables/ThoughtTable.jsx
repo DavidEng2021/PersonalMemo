@@ -1,10 +1,12 @@
 import {React, useEffect, useMemo, useState} from 'react'
 import { useTable, useSortBy } from 'react-table'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 import axios, * as others from 'axios';
 import './ThoughtTable.css'
 
 function ThoughtTable() {
+
+  const pageflesh = useOutletContext();
 
   const [postdata, setPostdata] = useState([]);
 
@@ -13,7 +15,7 @@ function ThoughtTable() {
         (res)=>{setPostdata(res.data)}
   ).catch(err =>{
     console.log(err)
-  })},[])
+  })},[pageflesh])
 
   
   const navigate = useNavigate()
@@ -50,7 +52,7 @@ function ThoughtTable() {
       () => COLUMNS,[]
     )
   
-    const data = useMemo(() => postdata, [postdata])
+    const data = postdata;
 
     // Use the state and functions returned from useTable to build your UI
     const {
@@ -66,7 +68,7 @@ function ThoughtTable() {
   
     // Render the UI for your table
     return (
-      <table {...getTableProps()} className='table table-striped table-hover table-bordered'>
+      <table {...getTableProps()} className='thought-table table table-striped table-hover table-bordered'>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>

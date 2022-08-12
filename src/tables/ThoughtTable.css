@@ -1,3 +1,6 @@
+.thought-table{
+    max-width: 800px;
+}
 .Thought-tr{
     cursor: pointer;
 }
