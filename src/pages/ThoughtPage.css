@@ -1,0 +1,14 @@
+.thought__container{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+}
+.thoutht__container__right-area .table{
+    overflow: auto;
+    max-height: 70vh;
+}
+.thoutht__container__right-area .btn-area{
+    display: flex;
+    justify-content: flex-end;
+    gap:4px
+}

@@ -1,0 +1,9 @@
+.thought-modal .op1, .op2{
+    margin: 5px;
+}
+.text-area{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid gray;
+    margin-top: 5px;
+}

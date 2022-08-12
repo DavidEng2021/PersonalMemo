@@ -1,0 +1,19 @@
+.auth-container{
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.auth-container__form{
+    border: 1px black solid;
+    padding: 50px;
+    border-radius: 5px;
+}
+.input-1, .input-2{
+    margin: 5px;
+}
+.input-2{
+    display: flex;
+    justify-content: space-between;
+}
