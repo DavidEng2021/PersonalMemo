@@ -4,3 +4,6 @@
 .Thought-tr{
     cursor: pointer;
 }
+.thought-table-row{
+    text-align: center;
+}

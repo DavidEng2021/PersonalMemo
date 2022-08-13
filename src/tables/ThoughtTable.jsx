@@ -38,8 +38,9 @@ function ThoughtTable() {
           accessor: 'type',
         },
         {
-          Header: '內文',
+          Header: '內文預覽',
           accessor: 'content',
+          Cell: ({ cell: { value } }) => { return (value.slice(0,27)+' ...')}
         },
         {
           Header: '情緒',
@@ -71,7 +72,7 @@ function ThoughtTable() {
       <table {...getTableProps()} className='thought-table table table-striped table-hover table-bordered'>
         <thead>
           {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr {...headerGroup.getHeaderGroupProps()} className='thought-table-row'>
               {headerGroup.headers.map(column => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render('Header')}
