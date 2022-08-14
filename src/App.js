@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <header className="title">
-        <h1>個人記事系統</h1>
+        <h1>個人記事系統👨‍💻</h1>
       </header>
       <nav className="navbar navbar-center navbar-expand-lg navbar-light bg-light">
         <ul className="navbar-nav">

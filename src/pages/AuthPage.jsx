@@ -1,20 +1,32 @@
 import React from 'react'
 import './AuthPage.css'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import axios, * as others from 'axios';
 
 const AuthPage = ({token, setToken}) => {
 
+    const [login, setLogin] = useState('')
     const navigate = useNavigate()
     const [userData, setUserData] = useState({
         user:'',
-        passward:''
+        password:''
     });
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
-        //pass userData to server and checking exist from DB, then DB will sent JWT token back.
-        setToken(true)
+        axios.post('http://localhost:3001/login',
+        {
+            user: userData.user,
+            password: userData.password
+        }).then((res)=>{
+            if(res.data.message){
+                setLogin(res.data.message);
+            } else {
+                setLogin(`歡迎${res.data[0].user}!`);
+                setToken(true);
+            }
+        })
     }
 
     useEffect(()=>{
@@ -34,10 +46,11 @@ const AuthPage = ({token, setToken}) => {
             <div className='input-2'>
                 <label >密碼?</label>
                 <input type="password"
-                onChange={(e)=>{ setUserData({...userData, passward:e.target.value})} }/>
+                onChange={(e)=>{ setUserData({...userData, password:e.target.value})} }/>
             </div>
             <button className='btn btn-primary'>送出</button>
         </form>
+        <h1>🕵{login}</h1>
     </div>
   )
 }
