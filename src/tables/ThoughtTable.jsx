@@ -6,7 +6,7 @@ import './ThoughtTable.css'
 
 function ThoughtTable() {
 
-  const pageflesh = useOutletContext();
+  const [pageflesh, dataFromFilter] = useOutletContext();
 
   const [postdata, setPostdata] = useState([]);
 
@@ -15,8 +15,11 @@ function ThoughtTable() {
         (res)=>{setPostdata(res.data)}
   ).catch(err =>{
     console.log(err)
-  })},[pageflesh])
+  })},[pageflesh])//react第一次mounted會觸發
 
+  useEffect(()=>{
+    setPostdata(dataFromFilter)
+  },[dataFromFilter]);//篩選頁面點擊btn>thoughtPage>table
   
   const navigate = useNavigate()
 

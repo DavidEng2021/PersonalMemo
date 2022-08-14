@@ -9,6 +9,11 @@ const ThoughtModal = ({setPageflesh,pageflesh}) => {
     const Today = new Date()
     const fullDay = Today.getFullYear()+ " 年 " + (Today.getMonth()+1) + " 月 " + Today.getDate() + " 日"
 
+    const dd = String(Today.getDate()).padStart(2, '0');
+    const mm = String(Today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const yyyy = Today.getFullYear();
+    const dataDay = yyyy + '-' + mm + '-' + dd;
+
     const [post, setPost] = useState(
         {
         'type':'隨筆',
@@ -22,7 +27,7 @@ const ThoughtModal = ({setPageflesh,pageflesh}) => {
     const handleSubmit =(e)=>{
         e.preventDefault();
         axios.post('http://localhost:3001/create',
-        {date:fullDay,
+        {date:dataDay,
         type:post.type,
         content:post.text,
         mood:post.mood}).then(()=>{
