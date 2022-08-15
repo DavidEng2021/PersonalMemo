@@ -10,7 +10,7 @@ import ThoughtTable from "./tables/ThoughtTable";
 
 function App() {
 
-  const [token, setToken] = useState(false);
+  const [token, setToken] = useState("");
 
   return (
     <>
@@ -49,7 +49,7 @@ function App() {
         <Routes>
           <Route path="/" element={<AuthPage token={token} setToken={setToken}/>} />
           <Route path="/thought" element={<ThoughtPage token={token}/>} >
-              <Route index element={<ThoughtTable/>}/>
+              <Route index element={<ThoughtTable token={token}/>}/>
               <Route path="post/:id" element={<ThoughtPost/>} />
           </Route>
           <Route path="/do" element={<DoPage token={token}/>} />

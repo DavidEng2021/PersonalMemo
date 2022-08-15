@@ -1,17 +1,23 @@
 import {React, useEffect, useMemo, useState} from 'react'
 import { useTable, useSortBy } from 'react-table'
 import { useNavigate, useOutletContext } from 'react-router-dom'
+import BeatLoader from "react-spinners/BeatLoader";
 import axios, * as others from 'axios';
 import './ThoughtTable.css'
 
-function ThoughtTable() {
+function ThoughtTable(token) {
+  const stringtoken = token.token;
 
   const [pageflesh, dataFromFilter] = useOutletContext();
 
   const [postdata, setPostdata] = useState([]);
 
   useEffect(()=>{
-      axios.get('http://localhost:3001/post').then(
+      axios.get('http://localhost:3001/post',{
+        headers:{
+          "access-token": stringtoken
+        }
+      }).then(
         (res)=>{setPostdata(res.data)}
   ).catch(err =>{
     console.log(err)
@@ -91,6 +97,7 @@ function ThoughtTable() {
             </tr>
           ))}
         </thead>
+        {postdata.length < 1 ? <div className='loader'><BeatLoader loading={true} size={30}/></div>:
         <tbody {...getTableBodyProps()}>
           {rows.map((row, i) => {
             prepareRow(row)
@@ -102,7 +109,7 @@ function ThoughtTable() {
               </tr>
             )
           })}
-        </tbody>
+        </tbody>}
       </table>
     )
   }

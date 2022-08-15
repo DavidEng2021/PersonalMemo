@@ -6,6 +6,7 @@ import './ThoughtPage.css'
 import ThoughtModal from '../modals/ThoughtModal'
 
 const ThoughtPage = ({token}) => {
+  const stringtoken = token;
   //modal中發文後更新頁面用 將set給modal page給outlet中的table
   const [pageflesh, setPageflesh] = useState(false);
 
@@ -23,7 +24,7 @@ const ThoughtPage = ({token}) => {
     <div className='thought__container'>
       <div className='thought__container__left-area'>
           <div className='filter'>
-            <ThoughtFilter setDataFromFilter={setDataFromFilter} />
+            <ThoughtFilter setDataFromFilter={setDataFromFilter} stringtoken={stringtoken}/>
           </div>
       </div>
       <div className="thoutht__container__right-area">

@@ -13,7 +13,7 @@ const AuthPage = ({token, setToken}) => {
         password:''
     });
 
-    const handleSubmit = async (e) =>{
+    const handleSubmit = (e) =>{
         e.preventDefault()
         axios.post('http://localhost:3001/login',
         {
@@ -23,8 +23,7 @@ const AuthPage = ({token, setToken}) => {
             if(res.data.message){
                 setLogin(res.data.message);
             } else {
-                setLogin(`歡迎${res.data[0].user}!`);
-                setToken(true);
+                setToken(res.data.jwttoken);
             }
         })
     }

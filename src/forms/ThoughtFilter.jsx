@@ -3,7 +3,8 @@ import { useState } from 'react'
 import axios, * as others from 'axios';
 import './ThoughtFilter.css'
 
-const ThoughtFilter = ({setDataFromFilter}) => {
+const ThoughtFilter = ({setDataFromFilter, stringtoken}) => {
+    const stringtoken1 = stringtoken;
     const [filterData, setFilterData] = useState({
         date:'',
         type:'隨筆',
@@ -17,7 +18,10 @@ const ThoughtFilter = ({setDataFromFilter}) => {
                 date:filterData.date,
                 type:filterData.type,
                 mood:filterData.mood
-            }
+            },
+            headers:{
+                "access-token": stringtoken1
+              }
         }).then(
             (res)=>{setDataFromFilter(res.data)}
         ).catch(err =>{
