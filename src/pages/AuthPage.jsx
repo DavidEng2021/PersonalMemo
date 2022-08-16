@@ -3,6 +3,7 @@ import './AuthPage.css'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios, * as others from 'axios';
+import MemeFace from '../images/memeface.png';
 
 const AuthPage = ({token, setToken}) => {
 
@@ -49,7 +50,7 @@ const AuthPage = ({token, setToken}) => {
             </div>
             <button className='btn btn-primary'>送出</button>
         </form>
-        <h1>🕵{login}</h1>
+        <div>{ login===""? <h1>🕵</h1> : <h1><img className='memeface' src={MemeFace}/>不認識你!</h1> }</div>
     </div>
   )
 }

@@ -18,3 +18,7 @@
     display: flex;
     justify-content: space-between;
 }
+.memeface{
+    display: inline;
+    height: 45px;
+}

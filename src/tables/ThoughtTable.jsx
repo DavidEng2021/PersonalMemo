@@ -32,6 +32,33 @@ function ThoughtTable(token) {
     const readPost =(e)=>{
       navigate(`post/${e.currentTarget.id}`)
     }
+
+    const moodtable = (e) =>{
+      if(e && e.stopPropagation) e.stopPropagation();
+
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const currentMonth = yyyy + '-' + mm;
+
+      const monthPost = postdata.filter((data)=>{
+        return data.date.slice(0, 7) === currentMonth;
+      })
+      const goodmood = monthPost.filter((data)=>{
+        return data.mood === "正";
+      }).length
+      const badmood = monthPost.filter((data)=>{
+        return data.mood === "負";
+      }).length
+      const monthlyMood = goodmood - badmood;
+      if(monthlyMood>=20){
+        alert("本月情緒:😁super good!")
+      } else if (monthlyMood>=10){
+        alert("本月情緒:😃nice!") 
+      } else if(monthlyMood>=0){
+        alert("本月情緒:🙂ok!")
+      } else {alert("本月情緒:😤not ok!")}
+    };
   
     const COLUMNS = [
         {
@@ -52,7 +79,7 @@ function ThoughtTable(token) {
           Cell: ({ cell: { value } }) => { return (value.slice(0,27)+' ...')}
         },
         {
-          Header: '情緒',
+          Header: <button className='mood-btn' onClick={moodtable}>情緒</button>,
           accessor: 'mood',
         },
       ]
