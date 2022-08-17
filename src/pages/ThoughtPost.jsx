@@ -14,7 +14,7 @@ const ThoughtPost = () => {
 
    
    useEffect(()=>{
-     axios.post('http://localhost:3001/id',{
+     axios.post('https://my-personal-memo.herokuapp.com/id',{
          id:id
      }).then(
        (res)=>{setPost(res.data[0])} //server回傳的res.data都包在arr裡面啊 我的媽
@@ -27,7 +27,7 @@ const ThoughtPost = () => {
 
     const deletePost = () =>{
       alert('確定要刪除?')
-      axios.delete("http://localhost:3001/delete/"+id).then(
+      axios.delete("https://my-personal-memo.herokuapp.com/delete/"+id).then(
         ()=>{
           notify();
           navigate('/thought');

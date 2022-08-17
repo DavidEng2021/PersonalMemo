@@ -16,7 +16,7 @@ const AuthPage = ({token, setToken}) => {
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        axios.post('http://localhost:3001/login',
+        axios.post('https://my-personal-memo.herokuapp.com/login',
         {
             user: userData.user,
             password: userData.password

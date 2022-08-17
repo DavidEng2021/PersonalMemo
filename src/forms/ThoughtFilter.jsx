@@ -13,7 +13,7 @@ const ThoughtFilter = ({setDataFromFilter, stringtoken}) => {
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        axios.get("http://localhost:3001/filteredpost", {
+        axios.get("https://my-personal-memo.herokuapp.com/filteredpost", {
             params:{
                 date:filterData.date,
                 type:filterData.type,
