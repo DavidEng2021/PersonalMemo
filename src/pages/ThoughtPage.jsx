@@ -32,7 +32,7 @@ const ThoughtPage = ({token}) => {
             <Outlet context={[pageflesh, dataFromFilter]}/>
           </div>
           <div className='btn-area'>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#thoughtModalCenter">
+            <button type="button" class="btn btn-primary btn-post" data-toggle="modal" data-target="#thoughtModalCenter">
               寫東西
             </button>
           </div>

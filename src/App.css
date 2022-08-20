@@ -1,7 +1,18 @@
 .title{
     text-align: center;
+    margin-bottom: -8px;
 }
 .navbar.navbar-center{
     justify-content: space-around;
     font-size: large;
+    position: relative;
+    min-height: 58.95px;
+    margin-top: 0px;
+}
+.form-check{
+    position: absolute;
+    right: 30px;
+}
+.app__container{
+    min-height: 87.5vh;
 }

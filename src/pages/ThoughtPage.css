@@ -2,6 +2,7 @@
     display: flex;
     padding: 20px;
     justify-content: center;
+    gap: 15px;
 }
 .thoutht__container__right-area .table{
     overflow: auto;
@@ -11,4 +12,17 @@
 .thoutht__container__right-area .btn-area{
     display: flex;
     justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    .thought__container{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn-post{
+        width: 60%;
+    }
+    .thoutht__container__right-area .btn-area{
+        justify-content: center;
+    }
 }

@@ -4,6 +4,7 @@
     border: 1px rgb(190, 190, 190) solid;
     border-radius: 5px;
     padding: 20px 20px 5px 20px;
+    background-color: white;
 }
 .post-tags{
     display: flex;
@@ -23,4 +24,7 @@
 }
 .post-btns .btn{
     height: 35px;
+}
+.pre{
+    white-space: pre-wrap;
 }

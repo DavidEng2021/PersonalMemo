@@ -26,7 +26,7 @@ const ThoughtModal = ({setPageflesh,pageflesh}) => {
 
     const handleSubmit =(e)=>{
         e.preventDefault();
-        axios.post('https://my-personal-memo.herokuapp.com/create',
+        axios.post('http://localhost:3001/create',
         {date:dataDay,
         type:post.type,
         content:post.text,

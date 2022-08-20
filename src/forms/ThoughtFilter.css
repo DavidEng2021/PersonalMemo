@@ -1,10 +1,6 @@
-.ThoughtFilter__container{
-    margin-right: 25px;
-}
 .ThoughtFilter__container .card-body{
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
-

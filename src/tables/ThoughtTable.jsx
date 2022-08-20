@@ -13,7 +13,7 @@ function ThoughtTable(token) {
   const [postdata, setPostdata] = useState([]);
 
   useEffect(()=>{
-      axios.get('https://my-personal-memo.herokuapp.com/post',{
+      axios.get('http://localhost:3001/post',{
         headers:{
           "access-token": stringtoken
         }
